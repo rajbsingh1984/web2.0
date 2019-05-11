@@ -20,7 +20,8 @@ onSubmit = async(event) =>{
     amount : this.state.amount,
     email : this.state.email
   })
-  console.log(response);
+  //console.log(response);
+  window.location.href = response.data;
 }
 
   render(){
