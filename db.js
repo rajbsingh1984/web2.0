@@ -3,12 +3,12 @@ var db_config = {
 host : '127.0.0.1',
   user : 'root',
   password : 'welcome1',
-  database : 'webapp'
+  database : 'weapp'
 }
 
 var connection;
 
-function handDisconnect(){
+function handleDisconnect(){
   connection = mysql.createConnection(db_config);
   connection.connect(function(err){
 if(err){
@@ -18,7 +18,7 @@ if(err){
 });
 connection.on('error', function(err){
 if(err.code === 'PROTOCOL_CONNECTION_LOST'){
-  handDisconnect();
+  handleDisconnect();
 }else{
   throw err;
 }
@@ -26,4 +26,4 @@ if(err.code === 'PROTOCOL_CONNECTION_LOST'){
 }
 
 handleDisconnect();
-module.exports = connection();
+module.exports = connection;
