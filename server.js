@@ -36,7 +36,7 @@ var result = await save_user_information({"amount" : amount, "email" : email});
           "payment_method": "paypal"
       },
       "redirect_urls": {
-          "return_url": "http://localhost:3000/sucess",
+          "return_url": "http://localhost:3000/success",
           "cancel_url": "http://localhost:3000/cancel"
       },
       "transactions": [{
@@ -77,6 +77,12 @@ var result = await save_user_information({"amount" : amount, "email" : email});
 
   //res.send(result);
 });
+
+app.get('/success', async (req, res) => {
+  const payerId = req.query.PayerId;
+  const paymentId = req.query.paymentId;
+})
+
 
 app.get('/get_total_amount', async (req, res) => {
   var result = await get_total_amount();
